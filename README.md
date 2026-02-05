@@ -5,20 +5,10 @@ Bootcamp for Fullstack development
 
 
 Instructions
-
-++++++++++++
-
-Download the codes. Run npm install.
-
-Make changes to DB connection in settings.py
-
-To run in dev environment.
-
-xxx> python manage.py runserver
-
-and
-
+------------
+Download the codes. Run npm install.<br />
+Make changes to DB connection in settings.py<br />
+To run in dev environment.<br />
+xxx> python manage.py runserver<br />
+and<br />
 xxx> npm run dev
-
-
-
