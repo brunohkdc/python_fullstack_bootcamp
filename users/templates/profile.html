@@ -1,0 +1,93 @@
+{% load django_vite %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Home
+        </title>
+
+        {% vite_hmr_client %}
+        {% vite_asset 'static/js/app.js' %}
+
+    </head>
+    <body>
+        <div class="max-w-md mx-auto mt-10 bg-base-200 p-6 rounded-xl shadow-lg">
+            <h2 class="text-2xl font-bold text-center mb-4">My Profile</h2>
+
+            <form method="post" class="space-y-4">
+                {% csrf_token %}
+
+                <!-- Username (read-only) -->
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">Username</span>
+                    </label>
+                    <input type="text" value="{{ request.user.username }}" class="input input-bordered w-full" readonly>
+                </div>
+
+                <!-- First Name -->
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">Nickname</span>
+                    </label>
+                    <input type="text" name="first_name" value="{{ form.first_name.value|default:'' }}" class="input input-bordered w-full">
+                    {{ form.first_name.errors }}
+                </div>
+
+                <!-- Last Name -->
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">Full Name</span>
+                    </label>
+                    <input type="text" name="last_name" value="{{ form.last_name.value|default:'' }}" class="input input-bordered w-full">
+                    {{ form.last_name.errors }}
+                </div>
+
+                <!-- Email -->
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text">Email</span>
+                    </label>
+                    <input type="email" name="email" value="{{ form.email.value|default:'' }}" class="input input-bordered w-full" required>
+                    {{ form.email.errors }}
+                </div>
+
+                <!-- Role -->
+                <div class="form-control">
+                    
+
+
+
+                    <label class="label">
+                        <span class="label-text">Role</span>
+                    </label>
+
+                    <select name="group" id="id_group" class="select select-bordered w-full">
+                        {% for choice in form.group.field.queryset %}
+                        <option value="{{ choice.id }}"
+                                {% if form.group.value|stringformat:"s" == choice.id|stringformat:"s" or choice == "user" %}
+                                    selected
+                                {% endif %}>
+                            {{ choice.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                    {{ form.group.errors }}
+                </div>
+
+                <div class="form-control mt-4">
+                    <button type="submit" class="btn btn-primary w-full">Save Changes</button>
+                </div>
+            </form>
+
+            <div class="divider"></div>
+            <div class="text-center">
+                <a href="{% url 'all_posts' %}" class="link link-primary">Back to Dashboard</a>
+            </div>
+        </div>
+
+    </body>
+</html>

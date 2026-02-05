@@ -1,0 +1,46 @@
+<div class="navbar bg-base-100 shadow-sm">
+  <div class="flex-1">
+    <a href="{% url 'all_posts' %}"class="btn btn-ghost text-xl">Dashboard</a>
+  </div>
+  <div class="flex gap-2">
+    <ul class="menu menu-horizontal px-1">
+        <li><a href="{% url 'my_posts' %}" class="text-base">My Posts</a></li>
+        <li>
+            <a href="{% url 'my_commented_posts' %}" class="text-base">My Commented Posts</a>
+        </li>
+        <li>
+          <span class="text-base">&#10073;</span>
+        </li>
+        <li><span class="text-base font-semibold italic">Welcome, {{ request.user.first_name | default:"User" }} !</span></li>
+    </ul>
+    <div class="dropdown dropdown-end pe-6">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+        <div class="w-10 rounded-full">
+        
+            {% load django_vite %}
+
+            <img src="{% vite_asset_url 'static/images/man_avatar_500x500.jpg' %}" />
+
+        </div>
+      </div>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        <li>
+          <a href="{% url 'profile' %}" class="text-base">Profile</a>
+        </li>
+        <li>
+          <a href="{% url 'change_password' %}" class="text-base">Change Password</a>
+        </li>
+        <li>
+            <form action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="text-base">
+                Logout
+              </button>
+            </form> 
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

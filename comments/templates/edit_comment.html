@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Update Comment
+{% endblock %}
+
+{% block content %}
+    <div class="flex justify-center items-start pt-6 min-h-screen bg-base-200">
+                
+                <div class="card w-full max-w-md shadow-xl bg-base-100 p-6">
+
+                    <h1 class="text-3xl font-bold">Update Comment</h1>
+                    <p>You are updating your comment to the post title:</p>
+                    <p class="font-bold">"{{ post.title }}"</p>
+                    
+
+                    <div class="divider"></div>
+
+                        <form method="post" class="space-y-4">
+                            {% csrf_token %}
+
+                            <!-- Comment Content -->
+                            <div class="form-control">
+                                <label class="label" for="{{ form.content.id_for_label }}">{{ form.content.label }}</label>
+                                {{ form.content }}
+                                {% if form.content.errors %}
+                                    <div class="error">{{ form.content.errors }}</div>
+                                {% endif %}
+                            </div>
+                            
+
+                            <div class="flex justify-end gap-4 mt-6">
+                                <button type="submit" class="btn btn-primary">{{ action }} Comment</button>
+                                <a href="{{ return_url }}" class="btn btn-secondary">Cancel</a>
+                            </div>
+                        </form>
+                </div>
+            </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Create Post
+{% endblock %}
+
+{% block content %}
+
+            <div class="flex justify-center items-start pt-6 min-h-screen bg-base-200">
+                
+                <div class="card w-full max-w-md shadow-xl bg-base-100 p-6">
+
+                    <h1 class="text-3xl font-bold">Create Post</h1>
+                    
+                    <div class="divider"></div>
+
+                        <form method="post" class="space-y-4">
+                            {% csrf_token %}
+
+                            <!-- Title -->
+                            <div class="form-control">
+                                <label class="label" for="{{ form.title.id_for_label }}">{{ form.title.label }}</label>
+                                {{ form.title }}
+                                {% if form.title.errors %}
+                                    <div class="error">{{ form.title.errors }}</div>
+                                {% endif %}
+                            </div>
+                        
+                            <!-- Post Content -->
+                            <div class="form-control">
+                                <label class="label" for="{{ form.post.id_for_label }}">{{ form.post.label }}</label>
+                                {{ form.post }}
+                                {% if form.post.errors %}
+                                    <div class="error">{{ form.post.errors }}</div>
+                                {% endif %}
+                            </div>
+
+                            <div class="flex justify-end gap-4 mt-6">
+                                <button type="submit" class="btn btn-primary">{{ action }} Post</button>
+                                <a href="{% url 'my_posts' %}" class="btn btn-secondary">Cancel</a>
+                            </div>
+                        </form>
+                </div>
+            </div>   
+           
+{% endblock %}

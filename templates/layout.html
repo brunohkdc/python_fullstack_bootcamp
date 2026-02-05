@@ -1,0 +1,47 @@
+{% load django_vite %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            {% block title %}
+                Django App
+            {% endblock %}
+        </title>
+
+        {% vite_hmr_client %}
+        {% vite_asset 'static/js/app.js' %}
+
+    </head>
+    <body>
+        {% include 'top_nav.html' %}
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+
+        {% if messages %}
+            <div class="toast toast-middle toast-center z-50">
+                {% for message in messages %}
+                    <div class="alert {{ message.tags }}">
+                        <span>{{ message }}</span>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </body>
+
+    <script>
+        // Auto-hide toasts after 3 seconds
+        setTimeout(() => {
+            document.querySelectorAll('.toast .alert').forEach(el => {
+            el.classList.add('opacity-0', 'transition', 'duration-700');
+            setTimeout(() => el.remove(), 700);
+            });
+        }, 3000);
+    </script>
+
+</html>
