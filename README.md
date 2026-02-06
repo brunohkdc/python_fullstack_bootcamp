@@ -4,11 +4,15 @@ Bootcamp for Fullstack development
 
 
 
-Instructions
-------------
+## Instructions
+### Prerequisite
+Other than Django, need to install using pip command.
+1. mysqlclient
+2. django-vite
+
 Download the codes. Run npm install.<br />
 Make changes to DB connection in settings.py<br />
 To run in dev environment.<br />
-xxx> python manage.py runserver<br />
+prompt> python manage.py runserver<br />
 and<br />
-xxx> npm run dev
+prompt> npm run dev
