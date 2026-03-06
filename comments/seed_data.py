@@ -1,16 +1,23 @@
-from django_seed import Seed
 from comments.models import Comment
 from posts.models import Post
 from django.contrib.auth.models import User
+from faker import Faker
 import random
 
+fake = Faker()
+
 def seed_comments(count=60):
-    seeder = Seed.seeder()
-    seeder.add_entity(Comment, count, {
-        'post': lambda x: random.choice(Post.objects.all()),
-        'user': lambda x: random.choice(User.objects.all()),
-        'content': lambda x: seeder.faker.sentence(nb_words=15),
-    })
-    inserted = seeder.execute()
+    posts = list(Post.objects.all())
+    users = list(User.objects.all())
+
+    if not posts or not users:
+        print("❌ No posts or users found. Create them first.")
+        return
+
+    for _ in range(count):
+        Comment.objects.create(
+            post=random.choice(posts),
+            user=random.choice(users),
+            content=fake.sentence(nb_words=30),
+        )
     print(f"✅ Seeded {count} comments.")
-    return inserted
