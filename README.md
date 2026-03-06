@@ -9,6 +9,7 @@ Bootcamp for Fullstack development
 Other than Django, need to install using pip command.
 1. mysqlclient
 2. django-vite
+3. faker
 
 Download the codes. Run npm install.<br />
 Make changes to DB connection in settings.py<br />
