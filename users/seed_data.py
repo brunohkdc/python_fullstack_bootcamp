@@ -1,18 +1,22 @@
-from django_seed import Seed
 from django.contrib.auth.models import User, Group
 
+from faker import Faker
+
+fake = Faker()
+
 def seed_users(count=7):
-    seeder = Seed.seeder()
-    seeder.add_entity(User, count, {
-        'username': lambda x: seeder.faker.unique.user_name(),
-        'email': lambda x: seeder.faker.email(),
-        'first_name': lambda x: seeder.faker.first_name(),
-        'last_name': lambda x: seeder.faker.last_name(),
-        'is_active': True,
-        'is_staff': False,
-        'is_superuser': False,
-    })
-    seeder.execute()
+    
+    for _ in range(count):
+        User.objects.create_user(
+            username=Faker().user_name(),
+            email=Faker().email(),
+            password='abcdef123456',
+            first_name=Faker().first_name(),
+            last_name=Faker().last_name(),
+            is_active=True,
+            is_staff=False,
+            is_superuser=False
+        )
 
     # Assign all users to the 'user' group
     group = Group.objects.get(name='user')

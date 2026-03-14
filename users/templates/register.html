@@ -1,4 +1,5 @@
 {% load django_vite %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +7,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>
-            Home
+            {% trans "Create Account" %}
         </title>
 
         {% vite_hmr_client %}
@@ -16,7 +17,7 @@
     <body class="flex justify-center items-center min-h-screen bg-base-200">
 
         <div class="card w-full max-w-md shadow-xl bg-base-100 p-6">
-            <h2 class="text-2xl font-bold mb-4 text-center">Create Account</h2>
+            <h2 class="text-2xl font-bold mb-4 text-center">{% trans "Create Account" %}</h2>
 
             <form method="post" class="space-y-4">
             {% csrf_token %}
@@ -24,7 +25,7 @@
             <!-- Username -->
             <div class="form-control">
                 <label class="label" for="id_username">
-                <span class="label-text">Username</span>
+                <span class="label-text">{% trans "Username" %}</span>
                 </label>
                 <input type="text" name="username" id="id_username" 
                     value="{{ form.username.value|default_if_none:'' }}"
@@ -37,7 +38,7 @@
             <!-- First Name -->
             <div class="form-control">
                 <label class="label" for="id_first_name">
-                <span class="label-text">Nickname</span>
+                <span class="label-text">{% trans "Nickname" %}</span>
                 </label>
                 <input type="text" name="first_name" id="id_first_name"
                     value="{{ form.first_name.value|default_if_none:'' }}"
@@ -47,7 +48,7 @@
             <!-- Last Name -->
             <div class="form-control">
                 <label class="label" for="id_last_name">
-                <span class="label-text">Full Name</span>
+                <span class="label-text">{% trans "Full Name" %}</span>
                 </label>
                 <input type="text" name="last_name" id="id_last_name"
                     value="{{ form.last_name.value|default_if_none:'' }}"
@@ -57,7 +58,7 @@
             <!-- Email -->
             <div class="form-control">
                 <label class="label" for="id_email">
-                <span class="label-text">Email</span>
+                <span class="label-text">{% trans "Email" %}</span>
                 </label>
                 <input type="email" name="email" id="id_email"
                     value="{{ form.email.value|default_if_none:'' }}"
@@ -70,7 +71,7 @@
             <!-- Password -->
             <div class="form-control">
                 <label class="label" for="id_password1">
-                <span class="label-text">Password</span>
+                <span class="label-text">{% trans "Password" %}</span>
                 </label>
                 <input type="password" name="password1" id="id_password1"
                     class="input input-bordered w-full" required>
@@ -82,7 +83,7 @@
             <!-- Confirm Password -->
             <div class="form-control">
                 <label class="label" for="id_password2">
-                <span class="label-text">Confirm Password</span>
+                <span class="label-text">{% trans "Confirm Password" %}</span>
                 </label>
                 <input type="password" name="password2" id="id_password2"
                     class="input input-bordered w-full" required>
@@ -94,7 +95,7 @@
             <!-- Role (Group) -->
             <div class="form-control">
             <label class="label" for="id_group">
-                <span class="label-text">Role</span>
+                <span class="label-text">{% trans "Role" %}</span>
             </label>
             <select name="group" id="id_group" class="select select-bordered w-full">
                 {% for choice in form.group.field.queryset %}
@@ -110,11 +111,11 @@
             </div>
 
             <!-- Submit -->
-            <button type="submit" class="btn btn-primary w-full">Sign Up</button>
+            <button type="submit" class="btn btn-primary w-full">{% trans "Sign Up" %}</button>
             </form>
 
             <p class="text-center mt-4">
-            Already have an account? <a href="{% url 'login' %}" class="link link-primary">Login</a>
+            {% trans "Already have an account?" %} <a href="{% url 'login' %}" class="link link-primary">{% trans "Login" %}</a>
             </p>
         </div>
 

@@ -1,4 +1,5 @@
 {% load django_vite %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +7,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>
-            Home
+            {% trans "Login" %}
         </title>
 
         {% vite_hmr_client %}
@@ -17,16 +18,16 @@
 
         <div class="flex flex-row-reverse bg-base-200 py-6 px-6 gap-4"> 
             <div class="text-lg">
-               <a href="/users/register">Register</a>
+               <a href="/users/register">{% trans "Register" %}</a>
             </div>
             <div class="text-lg">
-               <a href="/">Home</a>
+               <a href="/">{% trans "Home" %}</a>
             </div>
         </div>
 
         <div class="flex justify-center min-h-screen bg-base-200">
             <div class="card w-full max-w-md shadow-xl bg-base-100 p-6 mt-12 h-fit">
-                <h2 class="text-2xl font-bold mb-4 text-center">Login</h2>
+                <h2 class="text-2xl font-bold mb-4 text-center">{% trans "Login" %}</h2>
 
                 <form method="post" class="space-y-4">
                 {% csrf_token %}
@@ -41,7 +42,7 @@
                 <!-- Username -->
                 <div class="form-control">
                     <label class="label" for="id_username">
-                    <span class="label-text">Username</span>
+                    <span class="label-text">{% trans "Username" %}</span>
                     </label>
                     <input type="text" name="username" id="id_username" 
                         value="{{ form.username.value|default_if_none:'' }}"
@@ -54,7 +55,7 @@
                 <!-- Password -->
                 <div class="form-control">
                     <label class="label" for="id_password">
-                    <span class="label-text">Password</span>
+                    <span class="label-text">{% trans "Password" %}</span>
                     </label>
                     <input type="password" name="password" id="id_password"
                         class="input input-bordered w-full" required>
@@ -64,11 +65,11 @@
                 </div>
 
                 <!-- Submit -->
-                <button type="submit" class="btn btn-primary w-full">Login</button>
+                <button type="submit" class="btn btn-primary w-full">{% trans "Login" %}</button>
                 </form>
 
                 <p class="text-center mt-4">
-                    Don’t have an account? <a href="/users/register" class="link link-primary">Register</a>
+                    {% trans "Don’t have an account?" %} <a href="/users/register" class="link link-primary">{% trans "Register" %}</a>
                 </p>
             </div>
         </div>

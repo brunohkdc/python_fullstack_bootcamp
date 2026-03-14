@@ -6,6 +6,8 @@ from posts.models import Post
 from comments.models import Comment
 from .forms import PostForm
 
+from django.utils.translation import gettext_lazy as _
+
 # Create your views here.
 
 @login_required(login_url="login")
@@ -49,7 +51,7 @@ def create_post(request):
             post = form.save(commit=False)
             post.user = request.user
             post.save()
-            messages.success(request, 'Post created successfully!')
+            messages.success(request, _('Post created successfully!'))
             return redirect('my_posts')
     else:
         form = PostForm()
@@ -67,14 +69,14 @@ def edit_post(request, post_id):
     post = Post.objects.get(id=post_id)
     
     if post.user_id != request.user.id:
-        messages.error(request, "You don't have permission to edit this post.")
+        messages.error(request, _('You don\'t have permission to edit this post.'))
         return redirect('my_posts')
     
     if request.method == 'POST':
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Post updated successfully!')
+            messages.success(request, _('Post updated successfully!'))
             return redirect('my_posts')
     else:
         form = PostForm(instance=post)
@@ -98,5 +100,5 @@ def delete_post(request, post_id):
 
     post.delete()
 
-    messages.success(request, 'Post deleted successfully!')
+    messages.success(request, _('Post deleted successfully!'))
     return redirect('my_posts')

@@ -1,0 +1,152 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-13 23:43+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\blogs\settings.py:133
+msgid "English"
+msgstr "English"
+
+#: .\blogs\settings.py:134
+msgid "Simplified Chinese"
+msgstr "简体中文"
+
+#: .\posts\templates\all_posts.html:5 .\posts\templates\all_posts.html:12
+msgid "All Posts"
+msgstr "所有帖子"
+
+#: .\posts\templates\all_posts.html:22 .\templates\welcome.html:42
+msgid "by"
+msgstr "作者"
+
+#: .\posts\templates\all_posts.html:22
+msgid "Your post!!"
+msgstr "你的帖子！"
+
+#: .\posts\templates\all_posts.html:23 .\templates\welcome.html:43
+msgid "Content"
+msgstr "内容"
+
+#: .\posts\templates\all_posts.html:27 .\templates\welcome.html:53
+msgid "Comments"
+msgstr "评论"
+
+#: .\posts\templates\all_posts.html:33
+msgid "Add comment"
+msgstr "添加评论"
+
+#: .\posts\templates\all_posts.html:38
+msgid "Your comment!!"
+msgstr "你的评论！"
+
+#: .\posts\templates\all_posts.html:47 .\templates\welcome.html:64
+msgid "No posts available."
+msgstr "暂无帖子。"
+
+#: .\posts\templates\all_posts.html:48 .\templates\welcome.html:65
+msgid "Please login and be the first to create one!"
+msgstr "请登录并成为第一个创建者！"
+
+#: .\posts\views.py:54
+msgid "Post created successfully!"
+msgstr "发布成功！"
+
+#: .\posts\views.py:72
+msgid "You don't have permission to edit this post."
+msgstr "您没有权限编辑此帖子。"
+
+#: .\posts\views.py:79
+msgid "Post updated successfully!"
+msgstr "帖子已成功更新！"
+
+#: .\posts\views.py:103
+msgid "Post deleted successfully!"
+msgstr "帖子已成功删除！"
+
+#: .\templates\welcome.html:21 .\users\templates\login.html:21
+#: .\users\templates\login.html:72 .\users\templates\registration\login.html:21
+#: .\users\templates\registration\login.html:72
+msgid "Register"
+msgstr "注册用户"
+
+#: .\templates\welcome.html:24 .\users\templates\login.html:10
+#: .\users\templates\login.html:30 .\users\templates\login.html:68
+#: .\users\templates\register.html:118
+#: .\users\templates\registration\login.html:10
+#: .\users\templates\registration\login.html:30
+#: .\users\templates\registration\login.html:68
+msgid "Login"
+msgstr "登录"
+
+#: .\templates\welcome.html:31
+msgid "Welcome"
+msgstr "欢迎"
+
+#: .\templates\welcome.html:33
+msgid "My Blog App with Vite, Tailwind CSS, and DaisyUI."
+msgstr "我的博客应用是用 Vite、Tailwind CSS 和 DaisyUI 来开发的。"
+
+#: .\users\templates\login.html:24 .\users\templates\registration\login.html:24
+msgid "Home"
+msgstr "主页"
+
+#: .\users\templates\login.html:38 .\users\templates\register.html:28
+#: .\users\templates\registration\login.html:45
+msgid "Username"
+msgstr "用户名"
+
+#: .\users\templates\login.html:51 .\users\templates\register.html:74
+#: .\users\templates\registration\login.html:58
+msgid "Password"
+msgstr "密码"
+
+#: .\users\templates\login.html:72 .\users\templates\registration\login.html:72
+msgid "Don’t have an account?"
+msgstr "没有帐户吗？"
+
+#: .\users\templates\register.html:10 .\users\templates\register.html:20
+msgid "Create Account"
+msgstr "创建账户"
+
+#: .\users\templates\register.html:41
+msgid "Nickname"
+msgstr "昵称"
+
+#: .\users\templates\register.html:51
+msgid "Full Name"
+msgstr "全名"
+
+#: .\users\templates\register.html:61
+msgid "Email"
+msgstr "电子邮件"
+
+#: .\users\templates\register.html:86
+msgid "Confirm Password"
+msgstr "确认密码"
+
+#: .\users\templates\register.html:98
+msgid "Role"
+msgstr "群"
+
+#: .\users\templates\register.html:114
+msgid "Sign Up"
+msgstr "注册账号"
+
+#: .\users\templates\register.html:118
+msgid "Already have an account?"
+msgstr "已有账号了吗？"

@@ -41,13 +41,14 @@ INSTALLED_APPS = [
     'django_vite',
     'posts',
     'comments',
-    'users',
-    'django_seed'
+    'users'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -88,10 +89,10 @@ WSGI_APPLICATION = 'blogs.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blogs',
+        'NAME': '',
         'USER': '',
         'PASSWORD': '',  # Replace with your password
-        'HOST': 'localhost',
+        'HOST': '',
         'PORT': '3306',
         'OPTIONS': {
             'charset': 'utf8mb4',
@@ -123,11 +124,24 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE =   'en-us' #'zh-hans'
 
-TIME_ZONE = 'UTC'
+# Supported languages
+from django.utils.translation import gettext_lazy as _
 
-USE_I18N = True
+LANGUAGES = [
+    ('en', _('English')),
+    ('zh-hans', _('Simplified Chinese')),
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
+
+TIME_ZONE = 'Asia/Shanghai'
+
+USE_I18N = True          # enable translations
+USE_L10N = True          # enable locale-aware formatting
 
 USE_TZ = True
 

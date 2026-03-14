@@ -17,12 +17,17 @@ Including another URLconf
 #from xml.etree.ElementInclude import include
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
 from . import views
 
 urlpatterns = [
+    path('i18n/', include('django.conf.urls.i18n')),
+]
+
+urlpatterns += i18n_patterns( 
     path('admin/', admin.site.urls),
     path('', views.welcome, name='welcome'),
     path('posts/', include('posts.urls')),
     path('comments/', include('comments.urls')),
     path('users/', include('users.urls')),
-]
+)
