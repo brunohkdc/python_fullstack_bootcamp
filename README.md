@@ -17,3 +17,9 @@ To run in dev environment.<br />
 prompt> python manage.py runserver<br />
 and<br />
 prompt> npm run dev
+
+### For localization
+Need to install gettext, a python library.
+
+## Note
+This is not a complete localized codes. (view and html and maybe other files)
