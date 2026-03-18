@@ -4,6 +4,9 @@
   </div>
   <div class="flex gap-2">
     <ul class="menu menu-horizontal px-1">
+        {% if user.groups.all.0.name == 'admin' or user.is_superuser %}
+          <li><a href="/admin/" class="text-base">User Admin</a></li>
+        {% endif %}
         <li><a href="{% url 'my_posts' %}" class="text-base">My Posts</a></li>
         <li>
             <a href="{% url 'my_commented_posts' %}" class="text-base">My Commented Posts</a>
@@ -17,9 +20,9 @@
         <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
         <div class="w-10 rounded-full">
         
-            {% load django_vite %}
+            {% load static %}
 
-            <img src="{% vite_asset_url 'static/images/man_avatar_500x500.jpg' %}" />
+            <img src="{% static 'images/man_avatar_500x500.jpg' %}" />
 
         </div>
       </div>
